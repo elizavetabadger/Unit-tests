@@ -1,8 +1,6 @@
 package seminars.first.Calculator;
 
-import seminars.first.Calculator.Calculator;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;;
 
 public class CalculatorTest {
     public static void main(String[] args) {
@@ -73,5 +71,38 @@ public class CalculatorTest {
         // }
         //   assert 0 == seminars.first.Calculator.Calculator.calculation(2, 6, '+');
         //    assertThat(seminars.first.Calculator.Calculator.calculation(2, 6, '+')).isEqualTo(0);
+
+/*Задание 1. ** В классе Calculator создайте метод calculateDiscount, который принимает сумму покупки и процент скидки и
+возвращает сумму с учетом скидки. Ваша задача - проверить этот метод с использованием библиотеки AssertJ.
+Если метод calculateDiscount получает недопустимые аргументы, он должен выбрасывать исключение ArithmeticException.
+Не забудьте написать тесты для проверки этого поведения.*/
+
+        Calculator myCalculator = new Calculator();
+        myCalculator.calculatingDiscount(200, 25);
+
+        System.out.println(calculatingDiscount(10,5));
     }
+
+    public static void testDiscount() {
+        assertThat(calculatingDiscount(100, 10)).isEqualTo(90);// Позитивный сценарий
+        assertThat(calculatingDiscount(0, 10)); //Проверка при нулевой соимости товара
+        assertThat(calculatingDiscount(-100, 25));//Проверка на отрицательную стоимость товара
+        assertThat(calculatingDiscount(2000, 120)); //Проверка при скидке 100%
+        assertThat(calculatingDiscount(100, -25)); //Проверка на отрицательную скидку
+
+    }
+    public static double calculatingDiscount(double price, double discount) {
+        double res;
+        if (discount > 100) {
+            throw new ArithmeticException("Discount no 100%+");
+        } else if (price <= 0) {
+            throw new ArithmeticException("Wrong price > 0");
+        } else if (discount < 0) {
+            throw new ArithmeticException("Wrong discount > 0");
+        } else
+            res = price * (100 - discount) / 100;
+        System.out.println("Price " + price + " discount " + discount + " % = " + res);
+        return res;
+    }
+
 }
