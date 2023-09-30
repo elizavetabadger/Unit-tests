@@ -1,9 +1,5 @@
 package seminars;
 
-/*У вас есть класс BookService, который использует интерфейс BookRepository для получения информации о книгах из базы данных.
-Ваша задача написать unit-тесты для BookService, используя Mockito для создания мок-объекта BookRepository.
-*/
-
 import seminars.fourth.book.Book;
 import seminars.fourth.book.BookRepository;
 import seminars.fourth.book.BookService;
