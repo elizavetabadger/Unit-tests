@@ -42,6 +42,17 @@
         </dependency>
     </dependencies>
 
+    <!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+    <module name="Checker">
+        <module name="TreeWalker">
+            <module name="AvoidStarImport">
+                <property name="severity" value="warning" />
+            </module>
+        </module>
+    </module>
+
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
